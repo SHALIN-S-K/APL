@@ -1,0 +1,469 @@
+{ "name": "APL",
+
+// http://en.wikipedia.org/wiki/APL_syntax_and_symbols
+// http://www.math.uwaterloo.ca/~ljdickey/apl-rep/n1.html
+// http://docs.dyalog.com/latest/Dyalog%20APL%20Terminology.pdf
+
+  "scopeName": "source.apl",
+  "fileTypes": ["apl", "apls"],
+
+  "foldingStartMarker": "{",
+  "foldingStopMarker": "}",
+
+  "patterns": [
+
+
+
+    { "match": "^#!.+",
+      "name": "comment.shebang.apl",
+      "comment": "Shebang interpreter invokation"
+    },
+
+
+
+    { "begin": "'",
+      "end": "(')|(\n)",
+      "beginCaptures": {
+        "0": {"name": "support.type.string.single.begin.apl"}
+      },
+      "endCaptures": {
+        "1": {"name": "support.type.string.single.end.apl"},
+        "2": {"name": "invalid.illegal.newline.apl"}
+      },
+      "patterns": [
+        { "name": "string.quoted.single.content.apl",
+          "match": "[a-zA-Z]+"
+        }
+      ],
+      "name": "string.quoted.single.apl",
+      "comment": "String"
+    },
+
+
+
+    { "match": "⍝.*",
+      "name": "comment.line.apl",
+      "comment": "Line comment"
+    },
+
+    { "match": "[0-9][0-9\\.]*",
+      "name": "constant.numeric.apl",
+      "comment": "Numeric constant"
+    },
+
+
+
+    { "match": ":[a-zA-Z0-9]*",
+      "name": "string.quoted.single.label.apl",
+      "comment": "Specifier label"
+    },
+
+    { "match": ";",
+      "name": "string.quoted.single.semicolon.apl",
+      "comment": "Semicolon - conjoin"
+    },
+
+
+
+    { "match": "{",
+      "name": "support.function.open.apl",
+      "comment": "Open d-function/d-operator"
+    },
+
+    { "match": "}",
+      "name": "support.function.close.apl",
+      "comment": "Close d-function/d-operator"
+    },
+
+    { "match": "\\(",
+      "name": "support.function.parenthesis.open.apl",
+      "comment": "Open parenthesis - Vectors / ordering"
+    },
+
+    { "match": "\\)",
+      "name": "support.function.parenthesis.close.apl",
+      "comment": "Close parenthesis - Vectors / ordering"
+    },
+
+    { "match": "\\[",
+      "name": "support.function.parenthesis.open.apl",
+      "comment": "Left bracket - Indexing / axis specification"
+    },
+
+    { "match": "\\]",
+      "name": "support.function.parenthesis.close.apl",
+      "comment": "Right bracket - Indexing / axis specification"
+    },
+
+
+
+    { "match": "←",
+      "name": "support.function.construct.leftarrow.apl",
+      "comment": "Left Arrow - Assign"
+    },
+
+    { "match": "⍬",
+      "name": "support.function.construct.zilde.apl",
+      "comment": "Zilde - Empty numeric vector"
+    },
+
+    { "match": "⋄",
+      "name": "support.function.construct.diamond.apl",
+      "comment": "Diamond - statement separator"
+    },
+
+    { "match": "⍕",
+      "name": "support.function.construct.thorn.apl",
+      "comment": "Thorn - Format / format by specification"
+    },
+
+    { "match": "∇",
+      "name": "support.function.construct.del.apl",
+      "comment": "Del - self reference (recurse)"
+    },
+
+    { "match": "⎕[A-Z]*",
+      "name": "support.function.construct.quad.apl",
+      "comment": "Quad - system input"
+    },
+
+
+
+    { "match": "∧",
+      "name": "support.function.and.apl",
+      "comment": "Rho - Shape/Reshape"
+    },
+
+    { "match": "∨",
+      "name": "support.function.or.apl",
+      "comment": "Rho - Shape/Reshape"
+    },
+
+    { "match": "⍲",
+      "name": "support.function.nand.apl",
+      "comment": "Rho - Shape/Reshape"
+    },
+
+    { "match": "⍱",
+      "name": "support.function.nor.apl",
+      "comment": "Rho - Shape/Reshape"
+    },
+
+    { "match": "<",
+      "name": "support.function.lessthan.apl",
+      "comment": "Less than - Less than"
+    },
+
+    { "match": ">",
+      "name": "support.function.greaterthan.apl",
+      "comment": "Greater than - Greater than"
+    },
+
+    { "match": "≤",
+      "name": "support.function.lessthanorequalto.apl",
+      "comment": "Less than or equal to - Less than or equal to"
+    },
+
+    { "match": "≥",
+      "name": "support.function.greaterthanorequalto.apl",
+      "comment": "Greater than or equal to - Greater than or equal to"
+    },
+
+    { "match": "=",
+      "name": "support.function.equal.apl",
+      "comment": "Equal - Equal to"
+    },
+
+    { "match": "≠",
+      "name": "support.function.notequal.apl",
+      "comment": "Not equal - Not equal to (XOR)"
+    },
+
+    { "match": "≡",
+      "name": "support.function.equalunderbar.apl",
+      "comment": "Equal underbar - Depth / match"
+    },
+
+    { "match": "≢",
+      "name": "support.function.equalunderbarslash.apl",
+      "comment": "Equal underbar slash - Tally / not match"
+    },
+
+
+
+    { "match": "⍴",
+      "name": "storage.modifier.rho.apl",
+      "comment": "Rho - Shape/Reshape"
+    },
+
+    { "match": "¨",
+      "name": "storage.modifier.dieresis.apl",
+      "comment": "Dieresis - Each"
+    },
+
+    { "match": "⍨",
+      "name": "storage.modifier.tildedieresis.apl",
+      "comment": "Tilde dieresis - Commute"
+    },
+
+    { "match": "⍣",
+      "name": "storage.modifier.stardieresis.apl",
+      "comment": "Star dieresis - Power"
+    },
+
+    { "match": ",",
+      "name": "storage.modifier.comma.apl",
+      "comment": "Comma - Ravel / catenate-laminate"
+    },
+
+    { "match": "⍪",
+      "name": "storage.modifier.commabar.apl",
+      "comment": "Comma bar - Table / catenate-first-laminate"
+    },
+
+    { "match": "⌽",
+      "name": "storage.modifier.circlestile.apl",
+      "comment": "Circle stile - Reverse / rotate"
+    },
+
+    { "match": "⊖",
+      "name": "storage.modifier.circlebar.apl",
+      "comment": "Circle bar - Reverse first / rotate first"
+    },
+
+    { "match": "⍉",
+      "name": "storage.modifier.circlebackslash.apl",
+      "comment": "Circle backslash - Transpose / dyadic transpose"
+    },
+
+    { "match": "↑",
+      "name": "storage.modifier.uparrow.apl",
+      "comment": "Up arrow - Mix / take"
+    },
+
+    { "match": "↓",
+      "name": "storage.modifier.downarrow.apl",
+      "comment": "Down arrow - Split / drop"
+    },
+
+    { "match": "⊂",
+      "name": "storage.modifier.leftshoe.apl",
+      "comment": "Left shoe - Enclose / partitioned enclose"
+    },
+
+
+
+    { "match": "¯",
+      "name": "support.function.math.highminus.apl",
+      "comment": "High minus - Negate"
+    },
+
+    { "match": "\\+",
+      "name": "support.function.math.plus.apl",
+      "comment": "Plus - Conjugate / Add"
+    },
+
+    { "match": "-",
+      "name": "support.function.math.minus.apl",
+      "comment": "Minus - Negate / Minus"
+    },
+
+    { "match": "÷",
+      "name": "support.function.math.divide.apl",
+      "comment": "Divide - Reciprocal / Divide"
+    },
+
+    { "match": "×",
+      "name": "support.function.math.times.apl",
+      "comment": "Times - Sign Of / Multiply"
+    },
+
+    { "match": "\\*",
+      "name": "support.function.math.star.apl",
+      "comment": "Star - Exponential / Power"
+    },
+
+    { "match": "!",
+      "name": "support.function.math.exclamationmark.apl",
+      "comment": "Exclamation Mark - Factorial / Binomial"
+    },
+
+    { "match": "\\?",
+      "name": "support.function.math.questionmark.apl",
+      "comment": "Question Mark - Roll / Deal"
+    },
+
+    { "match": "\\|",
+      "name": "support.function.math.stile.apl",
+      "comment": "Stile - Magnitude / Residue"
+    },
+
+    { "match": "⌈",
+      "name": "support.function.math.upstile.apl",
+      "comment": "Upstile - Ceiling / Maximum"
+    },
+
+    { "match": "⌊",
+      "name": "support.function.math.downstile.apl",
+      "comment": "Downstile - Floor / Minimum"
+    },
+
+    { "match": "⊥",
+      "name": "support.function.math.uptack.apl",
+      "comment": "Uptack - Decode"
+    },
+
+    { "match": "⊤",
+      "name": "support.function.math.downtack.apl",
+      "comment": "Downtack - Encode"
+    },
+
+    { "match": "⍟",
+      "name": "support.function.math.log.apl",
+      "comment": "Log - Natural logarithm / logarithm"
+    },
+
+    { "match": "○",
+      "name": "support.function.math.circle.apl",
+      "comment": "Circle - Pi times / trig"
+    },
+
+    { "match": "⌹",
+      "name": "support.function.math.domino.apl",
+      "comment": "Domino - Matrix inverse / matrix divide"
+    },
+
+
+
+    { "match": "⍺⍺",
+      "name": "constant.other.parameter.doublealpha.apl",
+      "comment": "Double alpha variable"
+    },
+
+    { "match": "⍺",
+      "name": "constant.language.parameter.alpha.apl",
+      "comment": "Alpha variable"
+    },
+
+    { "match": "⍵⍵",
+      "name": "constant.other.parameter.doubleomega.apl",
+      "comment": "Double Omega variable"
+    },
+
+    { "match": "⍵",
+      "name": "constant.language.parameter.omega.apl",
+      "comment": "Omega variable"
+    },
+
+
+
+    { "match": "/",
+      "name": "keyword.operator.reduce.apl",
+      "comment": "Slash - reduce, first axis"
+    },
+
+    { "match": "⌿",
+      "name": "keyword.operator.reducelast.apl",
+      "comment": "Slash bar - reduce, last axis"
+    },
+
+    { "match": "\\\\",
+      "name": "keyword.operator.scan.apl",
+      "comment": "Backslash - scan, last axis"
+    },
+
+    { "match": "⍀",
+      "name": "keyword.operator.scanlast.apl",
+      "comment": "Backslash bar - scan, first axis"
+    },
+
+    { "match": "∘",
+      "name": "keyword.operator.jot.apl",
+      "comment": "Jot - outer product"
+    },
+
+    { "match": "\\.",
+      "name": "keyword.operator.innerproduct.apl",
+      "comment": "Dot - inner product"
+    },
+
+    { "match": "⌸",
+      "name": "keyword.operator.quadequal.apl",
+      "comment": "Quad equal - Key"
+    },
+
+    { "match": "⍤",
+      "name": "keyword.operator.jotdiaerisis.apl",
+      "comment": "Jot diaerisis - Rank"
+    },
+
+    { "match": "⌷",
+      "name": "keyword.operator.squad.apl",
+      "comment": "Squad - Materialize / index"
+    },
+
+    { "match": "⊃",
+      "name": "keyword.operator.rightshoe.apl",
+      "comment": "Right shoe - First / pick"
+    },
+
+    { "match": "~",
+      "name": "keyword.operator.tilde.apl",
+      "comment": "Tilde - Not / without"
+    },
+
+    { "match": "∪",
+      "name": "keyword.operator.upshoe.apl",
+      "comment": "Up shoe - Unique / union"
+    },
+
+    { "match": "∩",
+      "name": "keyword.operator.downshoe.apl",
+      "comment": "Down shoe - Intersection"
+    },
+
+    { "match": "⊣",
+      "name": "keyword.operator.lefttack.apl",
+      "comment": "Left tack - Same / left"
+    },
+
+    { "match": "⊢",
+      "name": "keyword.operator.righttack.apl",
+      "comment": "Right tack - Same / right"
+    },
+
+
+
+
+    { "match": "⍳",
+      "name": "constant.numeric.iota.apl",
+      "comment": "Iota - Index generator / index of"
+    },
+
+    { "match": "∊",
+      "name": "support.function.epsilon.apl",
+      "comment": "Epsilon - Enlist / membership"
+    },
+
+    { "match": "⍷",
+      "name": "support.function.epsilonunderbar.apl",
+      "comment": "Epsilon underbar - Find"
+    },
+
+    { "match": "⍋",
+      "name": "support.function.gradeup.apl",
+      "comment": "Grade up - Grade up / dyadic grade up"
+    },
+
+    { "match": "⍒",
+      "name": "support.function.gradedown.apl",
+      "comment": "Grade down - Grade down / dyadic grade down"
+    }
+
+
+
+  ],
+
+  "uuid": "0d05b65e-3e85-4493-8936-fece72e43e47"
+
+}

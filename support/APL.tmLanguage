@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>apl</string>
+		<string>apls</string>
+	</array>
+	<key>foldingStartMarker</key>
+	<string>{</string>
+	<key>foldingStopMarker</key>
+	<string>}</string>
+	<key>name</key>
+	<string>APL</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>comment</key>
+			<string>Shebang interpreter invokation</string>
+			<key>match</key>
+			<string>^#!.+</string>
+			<key>name</key>
+			<string>comment.shebang.apl</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>'</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>support.type.string.single.begin.apl</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>String</string>
+			<key>end</key>
+			<string>(')|(
+)</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>support.type.string.single.end.apl</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>invalid.illegal.newline.apl</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.single.apl</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>[a-zA-Z]+</string>
+					<key>name</key>
+					<string>string.quoted.single.content.apl</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Line comment</string>
+			<key>match</key>
+			<string>⍝.*</string>
+			<key>name</key>
+			<string>comment.line.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Numeric constant</string>
+			<key>match</key>
+			<string>[0-9][0-9\.]*</string>
+			<key>name</key>
+			<string>constant.numeric.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Specifier label</string>
+			<key>match</key>
+			<string>:[a-zA-Z0-9]*</string>
+			<key>name</key>
+			<string>string.quoted.single.label.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Semicolon - conjoin</string>
+			<key>match</key>
+			<string>;</string>
+			<key>name</key>
+			<string>string.quoted.single.semicolon.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Open d-function/d-operator</string>
+			<key>match</key>
+			<string>{</string>
+			<key>name</key>
+			<string>support.function.open.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Close d-function/d-operator</string>
+			<key>match</key>
+			<string>}</string>
+			<key>name</key>
+			<string>support.function.close.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Open parenthesis - Vectors / ordering</string>
+			<key>match</key>
+			<string>\(</string>
+			<key>name</key>
+			<string>support.function.parenthesis.open.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Close parenthesis - Vectors / ordering</string>
+			<key>match</key>
+			<string>\)</string>
+			<key>name</key>
+			<string>support.function.parenthesis.close.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Left bracket - Indexing / axis specification</string>
+			<key>match</key>
+			<string>\[</string>
+			<key>name</key>
+			<string>support.function.parenthesis.open.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Right bracket - Indexing / axis specification</string>
+			<key>match</key>
+			<string>\]</string>
+			<key>name</key>
+			<string>support.function.parenthesis.close.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Left Arrow - Assign</string>
+			<key>match</key>
+			<string>←</string>
+			<key>name</key>
+			<string>support.function.construct.leftarrow.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Zilde - Empty numeric vector</string>
+			<key>match</key>
+			<string>⍬</string>
+			<key>name</key>
+			<string>support.function.construct.zilde.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Diamond - statement separator</string>
+			<key>match</key>
+			<string>⋄</string>
+			<key>name</key>
+			<string>support.function.construct.diamond.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Thorn - Format / format by specification</string>
+			<key>match</key>
+			<string>⍕</string>
+			<key>name</key>
+			<string>support.function.construct.thorn.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Del - self reference (recurse)</string>
+			<key>match</key>
+			<string>∇</string>
+			<key>name</key>
+			<string>support.function.construct.del.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Quad - system input</string>
+			<key>match</key>
+			<string>⎕[A-Z]*</string>
+			<key>name</key>
+			<string>support.function.construct.quad.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Rho - Shape/Reshape</string>
+			<key>match</key>
+			<string>∧</string>
+			<key>name</key>
+			<string>support.function.and.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Rho - Shape/Reshape</string>
+			<key>match</key>
+			<string>∨</string>
+			<key>name</key>
+			<string>support.function.or.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Rho - Shape/Reshape</string>
+			<key>match</key>
+			<string>⍲</string>
+			<key>name</key>
+			<string>support.function.nand.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Rho - Shape/Reshape</string>
+			<key>match</key>
+			<string>⍱</string>
+			<key>name</key>
+			<string>support.function.nor.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Less than - Less than</string>
+			<key>match</key>
+			<string>&lt;</string>
+			<key>name</key>
+			<string>support.function.lessthan.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Greater than - Greater than</string>
+			<key>match</key>
+			<string>&gt;</string>
+			<key>name</key>
+			<string>support.function.greaterthan.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Less than or equal to - Less than or equal to</string>
+			<key>match</key>
+			<string>≤</string>
+			<key>name</key>
+			<string>support.function.lessthanorequalto.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Greater than or equal to - Greater than or equal to</string>
+			<key>match</key>
+			<string>≥</string>
+			<key>name</key>
+			<string>support.function.greaterthanorequalto.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Equal - Equal to</string>
+			<key>match</key>
+			<string>=</string>
+			<key>name</key>
+			<string>support.function.equal.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Not equal - Not equal to (XOR)</string>
+			<key>match</key>
+			<string>≠</string>
+			<key>name</key>
+			<string>support.function.notequal.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Equal underbar - Depth / match</string>
+			<key>match</key>
+			<string>≡</string>
+			<key>name</key>
+			<string>support.function.equalunderbar.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Equal underbar slash - Tally / not match</string>
+			<key>match</key>
+			<string>≢</string>
+			<key>name</key>
+			<string>support.function.equalunderbarslash.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Rho - Shape/Reshape</string>
+			<key>match</key>
+			<string>⍴</string>
+			<key>name</key>
+			<string>storage.modifier.rho.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Dieresis - Each</string>
+			<key>match</key>
+			<string>¨</string>
+			<key>name</key>
+			<string>storage.modifier.dieresis.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Tilde dieresis - Commute</string>
+			<key>match</key>
+			<string>⍨</string>
+			<key>name</key>
+			<string>storage.modifier.tildedieresis.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Star dieresis - Power</string>
+			<key>match</key>
+			<string>⍣</string>
+			<key>name</key>
+			<string>storage.modifier.stardieresis.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Comma - Ravel / catenate-laminate</string>
+			<key>match</key>
+			<string>,</string>
+			<key>name</key>
+			<string>storage.modifier.comma.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Comma bar - Table / catenate-first-laminate</string>
+			<key>match</key>
+			<string>⍪</string>
+			<key>name</key>
+			<string>storage.modifier.commabar.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Circle stile - Reverse / rotate</string>
+			<key>match</key>
+			<string>⌽</string>
+			<key>name</key>
+			<string>storage.modifier.circlestile.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Circle bar - Reverse first / rotate first</string>
+			<key>match</key>
+			<string>⊖</string>
+			<key>name</key>
+			<string>storage.modifier.circlebar.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Circle backslash - Transpose / dyadic transpose</string>
+			<key>match</key>
+			<string>⍉</string>
+			<key>name</key>
+			<string>storage.modifier.circlebackslash.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Up arrow - Mix / take</string>
+			<key>match</key>
+			<string>↑</string>
+			<key>name</key>
+			<string>storage.modifier.uparrow.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Down arrow - Split / drop</string>
+			<key>match</key>
+			<string>↓</string>
+			<key>name</key>
+			<string>storage.modifier.downarrow.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Left shoe - Enclose / partitioned enclose</string>
+			<key>match</key>
+			<string>⊂</string>
+			<key>name</key>
+			<string>storage.modifier.leftshoe.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>High minus - Negate</string>
+			<key>match</key>
+			<string>¯</string>
+			<key>name</key>
+			<string>support.function.math.highminus.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Plus - Conjugate / Add</string>
+			<key>match</key>
+			<string>\+</string>
+			<key>name</key>
+			<string>support.function.math.plus.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Minus - Negate / Minus</string>
+			<key>match</key>
+			<string>-</string>
+			<key>name</key>
+			<string>support.function.math.minus.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Divide - Reciprocal / Divide</string>
+			<key>match</key>
+			<string>÷</string>
+			<key>name</key>
+			<string>support.function.math.divide.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Times - Sign Of / Multiply</string>
+			<key>match</key>
+			<string>×</string>
+			<key>name</key>
+			<string>support.function.math.times.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Star - Exponential / Power</string>
+			<key>match</key>
+			<string>\*</string>
+			<key>name</key>
+			<string>support.function.math.star.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Exclamation Mark - Factorial / Binomial</string>
+			<key>match</key>
+			<string>!</string>
+			<key>name</key>
+			<string>support.function.math.exclamationmark.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Question Mark - Roll / Deal</string>
+			<key>match</key>
+			<string>\?</string>
+			<key>name</key>
+			<string>support.function.math.questionmark.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Stile - Magnitude / Residue</string>
+			<key>match</key>
+			<string>\|</string>
+			<key>name</key>
+			<string>support.function.math.stile.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Upstile - Ceiling / Maximum</string>
+			<key>match</key>
+			<string>⌈</string>
+			<key>name</key>
+			<string>support.function.math.upstile.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Downstile - Floor / Minimum</string>
+			<key>match</key>
+			<string>⌊</string>
+			<key>name</key>
+			<string>support.function.math.downstile.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Uptack - Decode</string>
+			<key>match</key>
+			<string>⊥</string>
+			<key>name</key>
+			<string>support.function.math.uptack.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Downtack - Encode</string>
+			<key>match</key>
+			<string>⊤</string>
+			<key>name</key>
+			<string>support.function.math.downtack.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Log - Natural logarithm / logarithm</string>
+			<key>match</key>
+			<string>⍟</string>
+			<key>name</key>
+			<string>support.function.math.log.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Circle - Pi times / trig</string>
+			<key>match</key>
+			<string>○</string>
+			<key>name</key>
+			<string>support.function.math.circle.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Domino - Matrix inverse / matrix divide</string>
+			<key>match</key>
+			<string>⌹</string>
+			<key>name</key>
+			<string>support.function.math.domino.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Double alpha variable</string>
+			<key>match</key>
+			<string>⍺⍺</string>
+			<key>name</key>
+			<string>constant.other.parameter.doublealpha.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Alpha variable</string>
+			<key>match</key>
+			<string>⍺</string>
+			<key>name</key>
+			<string>constant.language.parameter.alpha.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Double Omega variable</string>
+			<key>match</key>
+			<string>⍵⍵</string>
+			<key>name</key>
+			<string>constant.other.parameter.doubleomega.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Omega variable</string>
+			<key>match</key>
+			<string>⍵</string>
+			<key>name</key>
+			<string>constant.language.parameter.omega.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Slash - reduce, first axis</string>
+			<key>match</key>
+			<string>/</string>
+			<key>name</key>
+			<string>keyword.operator.reduce.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Slash bar - reduce, last axis</string>
+			<key>match</key>
+			<string>⌿</string>
+			<key>name</key>
+			<string>keyword.operator.reducelast.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Backslash - scan, last axis</string>
+			<key>match</key>
+			<string>\\</string>
+			<key>name</key>
+			<string>keyword.operator.scan.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Backslash bar - scan, first axis</string>
+			<key>match</key>
+			<string>⍀</string>
+			<key>name</key>
+			<string>keyword.operator.scanlast.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Jot - outer product</string>
+			<key>match</key>
+			<string>∘</string>
+			<key>name</key>
+			<string>keyword.operator.jot.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Dot - inner product</string>
+			<key>match</key>
+			<string>\.</string>
+			<key>name</key>
+			<string>keyword.operator.innerproduct.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Quad equal - Key</string>
+			<key>match</key>
+			<string>⌸</string>
+			<key>name</key>
+			<string>keyword.operator.quadequal.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Jot diaerisis - Rank</string>
+			<key>match</key>
+			<string>⍤</string>
+			<key>name</key>
+			<string>keyword.operator.jotdiaerisis.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Squad - Materialize / index</string>
+			<key>match</key>
+			<string>⌷</string>
+			<key>name</key>
+			<string>keyword.operator.squad.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Right shoe - First / pick</string>
+			<key>match</key>
+			<string>⊃</string>
+			<key>name</key>
+			<string>keyword.operator.rightshoe.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Tilde - Not / without</string>
+			<key>match</key>
+			<string>~</string>
+			<key>name</key>
+			<string>keyword.operator.tilde.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Up shoe - Unique / union</string>
+			<key>match</key>
+			<string>∪</string>
+			<key>name</key>
+			<string>keyword.operator.upshoe.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Down shoe - Intersection</string>
+			<key>match</key>
+			<string>∩</string>
+			<key>name</key>
+			<string>keyword.operator.downshoe.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Left tack - Same / left</string>
+			<key>match</key>
+			<string>⊣</string>
+			<key>name</key>
+			<string>keyword.operator.lefttack.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Right tack - Same / right</string>
+			<key>match</key>
+			<string>⊢</string>
+			<key>name</key>
+			<string>keyword.operator.righttack.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Iota - Index generator / index of</string>
+			<key>match</key>
+			<string>⍳</string>
+			<key>name</key>
+			<string>constant.numeric.iota.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Epsilon - Enlist / membership</string>
+			<key>match</key>
+			<string>∊</string>
+			<key>name</key>
+			<string>support.function.epsilon.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Epsilon underbar - Find</string>
+			<key>match</key>
+			<string>⍷</string>
+			<key>name</key>
+			<string>support.function.epsilonunderbar.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Grade up - Grade up / dyadic grade up</string>
+			<key>match</key>
+			<string>⍋</string>
+			<key>name</key>
+			<string>support.function.gradeup.apl</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Grade down - Grade down / dyadic grade down</string>
+			<key>match</key>
+			<string>⍒</string>
+			<key>name</key>
+			<string>support.function.gradedown.apl</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.apl</string>
+	<key>uuid</key>
+	<string>0d05b65e-3e85-4493-8936-fece72e43e47</string>
+</dict>
+</plist>
